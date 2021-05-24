@@ -12,7 +12,6 @@
     <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style" />
     <link href="assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
 
-
 </head>
 
 <body class="loading" data-layout="detached"
@@ -108,7 +107,10 @@
                                     <h4 class="page-title text-primary">Foods</h4>
                                     <i class="page-title card-pricing-icon mdi mdi-chevron-double-right mr-1 "
                                         style="font-size: 25px;"></i>
-                                    <h4 class="page-title text-primary">Honey Chicken</h4>
+                                    <div id="topic">
+                                        
+                                    </div>
+                                    
                                 </div>
     
                             </div>
@@ -124,14 +126,12 @@
                             <!-- Simple card -->
                             <div class="card d-block">
                                 <br>
-                                <img  style="width: 150px; height: 150px;   display: block;
-                                margin-left: auto;
-                                margin-right: auto;" src="assets\images\foods\honeychick.png" alt="Card image cap">
+                                <div id="img">
+                                    
+                                </div>
+                                
                                 <div class="card-body">
-                                    <h2 class="card-pricing-price" style="text-align: center;">Honey Chicken</h2>
-                                    <!-- <p class="card-text">Price: ₹250/-</p> -->
-                                      <!-- end row -->
-
+                                    <h2 class="card-pricing-price" style="text-align: center;" id="name"> </h2>
                                       <div class="container-fluid">
                                         <div class="row justify-content-center">
                                             <div class="row">
@@ -140,31 +140,8 @@
                                                         <div class=" text-center">
                                                             <h4 class="header-title mb-3">Details</h4>
                                                             <div class="table-responsive text-left">
-                                                                <table class="table mb-0">
-                                                                    <!-- <thead class="thead-light">
-                                                                        <tr>
-                                                                            <th>Info</th>
-                                                                            <th>Details</th>
-                                                                        </tr>
-                                                                    </thead> -->
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td><b>Price</b></td>
-                                                                            <td><b>₹250/-</b></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Preparation Time</td>
-                                                                            <td>40 Minutes</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Time</td>
-                                                                            <td>10:00 AM - 10:00 PM</td>
-                                                                        </tr>
-                                                                        <!-- <tr>
-                                                                            <td>Cost</td>
-                                                                            <td>$ 5</td>
-                                                                        </tr> -->
-                                                                    </tbody>
+                                                                <table class="table mb-0" id="details">
+                                                                    
                                                                 </table>
                                                             </div>
                                                             <button class="btn btn-outline-success mt-4 mb-2 btn-rounded"
@@ -222,12 +199,8 @@
     <!-- third party js -->
     <script src="assets/js/vendor/Chart.bundle.min.js"></script>
     <!-- third party js ends -->
-
-    <!-- demo app -->
-    <script src="assets/js/pages/demo.profile.js"></script>
-    <script src="js/slot.js"></script>
  
-
+    <script src="js/foodDetail.js"></script>
 </body>
 
 </html>
