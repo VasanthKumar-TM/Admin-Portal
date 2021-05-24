@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Food | Hotel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- App css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+
+    <!-- Stripe dependencies -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- Local Js -->
+    <script src="js/foodlist.js"></script>
+
+</head>
+
+<body class="loading" data-layout="detached"
+    data-layout-config='{"leftSidebarCondensed":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+
+    <!-- Topbar -->
+    <div class="navbar-custom topnav-navbar topnav-navbar-dark">
+        <div class="container-fluid">
+
+            <a href="index.html" class="topnav-logo">
+                <h2 style="margin-top: 20px; color: ivory;">Hotel</h2>
+            </a>
+
+        </div>
+    </div>
+    <!-- end Topbar -->
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+
+        <!-- Begin page -->
+        <div class="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left-side-menu left-side-menu-detached">
+
+                <div class="leftbar-user">
+                    <a href="javascript: void(0);">
+                        <img src="assets\images\foods\hotel.jpg"
+                            alt="user-image" height="150" width="150" class="rounded-circle shadow-sm" style="margin-top: 50px;">
+                        <span class="leftbar-user-name" id="username-sub1"></span>
+                    </a>
+                </div>
+
+                <!--- Sidemenu -->
+                <ul class="metismenu side-nav">
+
+                    <li class="side-nav-item">
+                        <a href="profile.html" class="side-nav-link">
+                            <i class="mdi mdi-account-circle mr-1"></i>
+                            <span> Profile </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
+                        <a href="food.html" class="side-nav-link">
+                            <i class="mdi mdi-food"></i>
+                            <span> Food </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
+                        <a href="invoice.html" class="side-nav-link">
+                            <i class="mdi mdi-note-text"></i>
+                            <span> Orders </span>
+                        </a>
+                    </li>
+
+                    <br>
+
+                    <li class="side-nav-item" id="logoutBtn" style="margin-left: 20px;">
+                        <button type="button" class="btn btn-outline-secondary btn-rounded " onclick="location.href='logout.html'">
+                            <i class="mdi mdi-arrow-left-bold-circle-outline"></i>
+                            <span> Logout </span>
+                        </button>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- Start Content-->
+            <div class="content-page" id="main">
+
+                <!-- start Row -->
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Start Top Routed Pages -->
+                        <div class="page-title-box">
+                            <div class="row" style="margin-left: 3px;">
+                                <h4 class="page-title">Food</h4>
+                                <i class="page-title card-pricing-icon mdi mdi-chevron-double-right mr-1 "
+                                    style="font-size: 25px;"></i>
+                                <h4 class="page-title text-primary">Category</h4>
+                            </div>
+
+                        </div>
+                        <!-- End Top Routed Pages -->
+                    </div>
+                </div>
+                <!-- End Row -->
+
+                <!-- Start Main Content -->
+                <div class="container-fluid">
+                    <!-- Start Row -->
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+
+                            <!-- Start Category Topic -->
+                            <div class="text-center">
+                                <h3 class="mb-2">Category</h3>
+                                <p class="text-muted w-50 m-auto">
+                                    Select the Category to see the Food List
+                                </p>
+                            </div>
+                            <!-- End Category Topic -->
+
+                            <!-- Start Categories -->
+                            <div class="row mt-sm-5 mt-3 mb-3">
+
+                                <!-- Category 1 -->
+                                <div class="col-md-4">
+                                    <div class="card card-pricing">
+                                        <div class="card-body text-center">
+                                            
+                                            <h2 class="card-pricing-price">Foods</h2>
+                                            <!-- Select Button: On Clicking the button foodCat function will be called in foodlist.js  -->
+                                            <button class="btn btn-primary mt-4 mb-2 btn-rounded"
+                                                onclick="foodCat('foods')">Select</button>
+
+                                        </div>
+                                    </div> <!-- end Pricing_card -->
+                                </div> <!-- end col -->
+
+                                <!-- Category 2 -->
+                                <div class="col-md-4">
+                                    <div class="card card-pricing">
+                                        <div class="card-body text-center">
+                                            
+                                            <h2 class="card-pricing-price">Drinks</h2>
+                                            <!-- Select Button: On Clicking the button foodCat function will be called in foodlist.js  -->
+                                            <button class="btn btn-primary mt-4 mb-2 btn-rounded"
+                                                onclick="foodCat('drinks')">Select</button>
+
+                                        </div>
+                                    </div> <!-- end Pricing_card -->
+                                </div> <!-- end col -->
+
+                                <!-- Category 3 -->
+                                <div class="col-md-4">
+                                    <div class="card card-pricing">
+                                        <div class="card-body text-center">
+                                            
+                                            <h2 class="card-pricing-price">Snacks</h2>
+                                            <!-- Select Button: On Clicking the button foodCat function will be called in foodlist.js  -->
+                                            <button class="btn btn-primary mt-4 mb-2 btn-rounded"
+                                                onclick="foodCat('snacks')">Select</button>
+
+                                        </div>
+                                    </div> <!-- end Pricing_card -->
+                                </div> <!-- end col -->
+
+                                <!-- Category 4 -->
+                                <div class="col-md-4">
+                                    <div class="card card-pricing">
+                                        <div class="card-body text-center">
+                                            
+                                            <h2 class="card-pricing-price">Desserts</h2>
+                                            <!-- Select Button: On Clicking the button foodCat function will be called in foodlist.js  -->
+                                            <button class="btn btn-primary mt-4 mb-2 btn-rounded"
+                                                onclick="foodCat('deserts')">Select</button>
+
+                                        </div>
+                                    </div> <!-- end Pricing_card -->
+                                </div> <!-- end col -->
+
+                            </div>
+                            <!-- End Categories -->
+
+                        </div> <!-- end col-->
+                    </div>
+                    <!-- end row -->
+
+                </div> <!-- Start Main Content -->
+
+
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                2021 © APJV Creations
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end Footer -->
+
+            </div> <!-- content-page -->
+
+        </div> <!-- end wrapper-->
+    </div>
+
+
+
+    <!-- bundle -->
+    <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+    <!-- third party js -->
+    <script src="assets/js/vendor/Chart.bundle.min.js"></script>
+    <!-- third party js ends -->
+
+    <!-- demo app -->
+    <script src="assets/js/pages/demo.profile.js"></script>
+ 
+
+</body>
+
+</html>

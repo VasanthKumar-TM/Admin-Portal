@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Food Detail | Hotel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- App css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+
+
+</head>
+
+<body class="loading" data-layout="detached"
+    data-layout-config='{"leftSidebarCondensed":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+
+    <!-- Start Topbar -->
+    <div class="navbar-custom topnav-navbar topnav-navbar-dark">
+        <div class="container-fluid">
+            <a href="index.html" class="topnav-logo">
+                <h2 style="margin-top: 20px; color: ivory;">Hotel</h2>
+            </a>
+
+        </div>
+    </div>
+    <!-- end Topbar -->
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+
+        <!-- Begin page -->
+        <div class="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left-side-menu left-side-menu-detached">
+                
+                <div class="leftbar-user">
+                    <a href="javascript: void(0);">
+                        <img src="assets\images\foods\hotel.jpg"
+                            alt="user-image" height="150" width="150" class="rounded-circle shadow-sm" style="margin-top: 50px;">
+                        <span class="leftbar-user-name" id="username-sub1"></span>
+                    </a>
+                </div>
+
+                <!--- Sidemenu -->
+                <ul class="metismenu side-nav">
+
+                    <li class="side-nav-item">
+                        <a href="profile.html" class="side-nav-link">
+                            <i class="mdi mdi-account-circle mr-1"></i>
+                            <span> Profile </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
+                        <a href="food.html" class="side-nav-link">
+                            <i class="mdi mdi-food"></i>
+                            <span> Food </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
+                        <a href="invoice.html" class="side-nav-link">
+                            <i class="mdi mdi-note-text"></i>
+                            <span> Orders </span>
+                        </a>
+                    </li>
+                    
+                    <br>
+
+
+                    <li class="side-nav-item" id="logoutBtn" style="margin-left: 20px;">
+                        <button type="button" class="btn btn-outline-secondary btn-rounded " onclick="location.href='logout.html'">
+                            <i class="mdi mdi-arrow-left-bold-circle-outline"></i>
+                            <span> Logout </span>
+                        </button>
+                    </li>
+
+
+
+
+                </ul>
+
+
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <div class="content-page" id="main">
+                <!-- Start Content-->
+                <div class="content">
+
+                    <!-- Start Top Routed Pages -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="row" style="margin-left: 3px;">
+                                    <h4 class="page-title">Food</h4>
+                                    <i class="page-title card-pricing-icon mdi mdi-chevron-double-right mr-1 "
+                                        style="font-size: 25px;"></i>
+                                    <h4 class="page-title text-primary">Category</h4>
+                                    <i class="page-title card-pricing-icon mdi mdi-chevron-double-right mr-1 "
+                                        style="font-size: 25px;"></i>
+                                    <h4 class="page-title text-primary">Foods</h4>
+                                    <i class="page-title card-pricing-icon mdi mdi-chevron-double-right mr-1 "
+                                        style="font-size: 25px;"></i>
+                                    <h4 class="page-title text-primary">Honey Chicken</h4>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>  
+                    <!--End Top Routed Pages -->
+
+                    <br>
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-lg-8 ">
+            
+                            <!-- Simple card -->
+                            <div class="card d-block">
+                                <br>
+                                <img  style="width: 150px; height: 150px;   display: block;
+                                margin-left: auto;
+                                margin-right: auto;" src="assets\images\foods\honeychick.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h2 class="card-pricing-price" style="text-align: center;">Honey Chicken</h2>
+                                    <!-- <p class="card-text">Price: ₹250/-</p> -->
+                                      <!-- end row -->
+
+                                      <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div  style="min-width: 500px;">
+                                                        <div class=" text-center">
+                                                            <h4 class="header-title mb-3">Details</h4>
+                                                            <div class="table-responsive text-left">
+                                                                <table class="table mb-0">
+                                                                    <!-- <thead class="thead-light">
+                                                                        <tr>
+                                                                            <th>Info</th>
+                                                                            <th>Details</th>
+                                                                        </tr>
+                                                                    </thead> -->
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td><b>Price</b></td>
+                                                                            <td><b>₹250/-</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Preparation Time</td>
+                                                                            <td>40 Minutes</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Time</td>
+                                                                            <td>10:00 AM - 10:00 PM</td>
+                                                                        </tr>
+                                                                        <!-- <tr>
+                                                                            <td>Cost</td>
+                                                                            <td>$ 5</td>
+                                                                        </tr> -->
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <button class="btn btn-outline-success mt-4 mb-2 btn-rounded"
+                                                                onclick="location.href='addFood.html'" >
+                                                                <i class="uil-edit"></i> Edit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div><!-- end col -->
+                        
+                        
+                    </div>
+                    
+
+                    </div> <!-- End Content -->
+
+                    <!-- Footer Start -->
+
+
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                2021 © APJV Creations
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end Footer -->
+
+            </div> <!-- content-page -->
+
+        </div> <!-- end wrapper-->
+    </div>
+
+
+
+    <!-- bundle -->
+    <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+    <!-- third party js -->
+    <script src="assets/js/vendor/Chart.bundle.min.js"></script>
+    <!-- third party js ends -->
+
+    <!-- demo app -->
+    <script src="assets/js/pages/demo.profile.js"></script>
+    <script src="js/slot.js"></script>
+ 
+
+</body>
+
+</html>

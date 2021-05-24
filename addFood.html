@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Profile|Pattarai-Stretch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app-modern.min.css" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="assets/css/app-modern-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+
+    <script src="js/addFood.js"></script>
+
+
+    <style>
+        @media only screen and (min-width: 1200px) {
+            #card {
+                margin-left: 240px;
+                margin-right: 250px;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="loading" data-layout="detached"
+    data-layout-config='{"leftSidebarCondensed":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+
+    <!-- Topbar -->
+    <div class="navbar-custom topnav-navbar topnav-navbar-dark">
+        <div class="container-fluid">
+
+            <!-- LOGO -->
+            <a href="profile.html" class="topnav-logo">
+                <h2 style="margin-top: 20px; color: ivory;">Hotel</h2>
+            </a>
+
+        </div>
+    </div>
+    <!-- end Topbar -->
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+
+        <!-- Begin page -->
+        <div class="wrapper">
+
+            <!-- Start content page -->
+            <div class="content-page">
+                <div class="content">
+                    <br><br>
+                    <!-- start Row -->
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- card -->
+                            <div class="card" id="card">
+                                <!-- card body -->
+                                <div class="card-body">
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="input-types-preview">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <form class="needs-validation" novalidate action="#" method="POST" id="profile_page">
+
+                                                        <!-- Food Name -->
+                                                        <div class="form-group">
+                                                            <label for="">Food Name</label>
+                                                            <input type="text" id="name" class="form-control "
+                                                                placeholder="Name" required/>
+                                                            <div class="invalid-feedback">
+                                                                Please Enter a Food Name.
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Food Category -->
+                                                        <label for="cars">Category:</label>
+                                                        <select name="foodCategory" id="category">
+                                                            <option value="foods">Foods</option>
+                                                            <option value="drinks">Drinks</option>
+                                                            <option value="snacks">Snacks</option>
+                                                            <option value="deserts">Deserts</option>
+                                                        </select>
+
+                                                        <!-- Food Price -->
+                                                        <div class="form-group">
+                                                            <label for="">Price</label>
+                                                            <input type="number" id="price" class="form-control"
+                                                                placeholder="Price" required/>
+                                                            <p>Ex.: Put 250 for Rs. 250/-</p>
+                                                            <div class="invalid-feedback">
+                                                                Please Enter a Price.
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Food Preparartion time -->
+                                                        <div class="form-group">
+                                                            <label for="">Preparation Time</label>
+                                                            <input type="number" id="time" class="form-control"
+                                                                placeholder="Time" required/>
+                                                            <p>Ex.: Put 25 for 250 minutes</p>
+                                                            <div class="invalid-feedback">
+                                                                Please Enter a Preparation Time.
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- Is food is available or not -->
+                                                        <fieldset group="available" class="pb-3">
+                                                            <label for="">Food is Available?</label>
+                                                            <div class="form-check">
+                                                              <input class="form-check-input" type="radio" name="available" id="available-yes" value="1" checked/>
+                                                              <label class="form-check-label" for="available-yes">Yes</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                              <input class="form-check-input" type="radio" name="available" id="available-no" value="0" />
+                                                              <label class="form-check-label" for="availabler-no">No</label>
+                                                            </div>
+                                                        </fieldset>
+
+                                                        <!-- Food Image -->
+                                                        <div class="form-group">
+                                                            <label for="">Image : </label>
+                                                            <input type='file' accept='image/*'  onchange='openFile(event)' id="pic" required><br>
+                                                            <div class="invalid-feedback">
+                                                                Please Attach a image.
+                                                            </div>
+                                                            <img id='output' style="width: 150px; height: 150px; border-radius: 50%; margin-top: 10px;">
+                                                        </div>
+
+                                                        <!-- Error message -->
+                                                        <p id="errorMessage" class="text-danger font-weight-bold"></p>
+
+                                                        <!-- Submit button: On Click addFood function in addFood.js will call -->
+                                                        <button type="submit" class="btn btn-primary" onclick="addFood()">Submit</button>
+
+                                                    </form>
+                                                </div> <!-- end col -->
+
+
+                                            </div>
+                                            <!-- end row-->
+                                        </div> <!-- end preview-->
+
+                                        <!-- end tab-content-->
+
+                                    </div> <!-- end card-body -->
+                                </div> <!-- end card -->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <!-- Footer Start -->
+                        <footer class="footer">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        APJV Creations
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- end Footer -->
+
+                    </div> 
+                </div>
+            </div> <!-- End content-page -->
+        </div> <!-- end wrapper-->
+    </div>
+
+
+
+        <!-- bundle -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+
+        <!-- third party js -->
+        <script src="assets/js/vendor/Chart.bundle.min.js"></script>
+        <!-- third party js ends -->
+
+        <!-- demo app -->
+        <script src="assets/js/pages/demo.profile.js"></script>
+        <!-- end demo js-->
+
+</body>
+
+</html>
