@@ -5,7 +5,7 @@ function arrValue(i) {
     localStorage.setItem("i", arr);    
     window.location.replace("foodDetail.html");
 }
-
+//
 foodDetail();
 
 function foodDetail() {
