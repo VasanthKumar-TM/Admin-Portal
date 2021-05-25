@@ -1,8 +1,10 @@
-function foodCat(name){
-    var CatName = name;  
-    localStorage.setItem("category", CatName);    
-    window.location.replace("foodlist.html");
-    
+
+
+function arrValue(i) {
+    console.log(i);
+    var arr = i;  
+    localStorage.setItem("i", arr);    
+    window.location.replace("foodDetail.html");
 }
 
 foodList();
@@ -24,7 +26,7 @@ function foodList() {
 
                 for(var i=0 ; i<length; i++){
                     if(myObj[i].foodtype == category){
-                        document.getElementById('foodCard').innerHTML += '<div class="col-md-6 col-lg-3"><div class="card d-block"><br><img style="width: 150px; height: 150px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" src="'+ myObj[i].foodpic +'" alt="Card image cap"><div class="card-body"><h4 class="card-title">'+ myObj[i]._id +'</h4><p class="card-text">Price: ₹'+ myObj[i].foodprice +'/-</p><a href="javascript: void(0);" class="btn btn-primary" onclick="arrValue('+ i +')">Button</a></div></div></div>' ;
+                        document.getElementById('foodCard').innerHTML += '<div class="col-md-6 col-lg-3"><div class="card d-block"><br><img style="width: 150px; height: 150px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" src="'+ myObj[i].foodpic +'" alt="Card image cap"><div class="card-body"><h4 class="card-title">'+ myObj[i]._id +'</h4><p class="card-text">Price: ₹'+ myObj[i].foodprice +'/-</p><a href="javascript: void(0);" class="btn btn-primary" onclick="arrValue('+ i +')">Details</a></div></div></div>' ;
                     }
                     
                 }

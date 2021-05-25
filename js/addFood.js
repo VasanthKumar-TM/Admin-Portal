@@ -1,5 +1,17 @@
 
-// const fileInput = document.querySelector("#pic");
+var firebaseConfig = {
+    apiKey: "AIzaSyAcPhRLki_b_MRNQ98m0ItxNBr6QCkXaBI",
+    authDomain: "food-app-740db.firebaseapp.com",
+    projectId: "food-app-740db",
+    storageBucket: "food-app-740db.appspot.com",
+    messagingSenderId: "440859497444",
+    appId: "1:440859497444:web:0bcd6035e2d7f507f12df1",
+    measurementId: "G-B1EKFRLL0G"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
 
 var imageData;
 
@@ -56,23 +68,46 @@ function addFood() {
             imageData !== undefined &&
             focus !== ""
         ) {
+            const ref = firebase.storage().ref();
+            const file = document.querySelector("#pic").files[0];
+            var currentdate = new Date();
+            var datetime = "foodpic" + currentdate.getDate()
+                + (currentdate.getMonth() + 1)
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
 
-            let xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://apifoodapp.herokuapp.com/addFood', false); // API POST request
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      
-            xhr.onreadystatechange = function () {
-              if (xhr.readyState == 4 && xhr.status == 200) {
-                res = xhr.responseText;
-                if (res == 'true') {
-                    //Routing to foodlist.html
-                  window.location.replace("foodlist.html");
-                }
-              }
-            }
+            const metadata = {
+                contentType: file.type
+            };
 
-            // Sending the value to DB
-            xhr.send("foodname=" + name + "&foodpic=" + imageData + "&foodprice=" + price + "&foodpreptime=" + time + "&foodavailability=" + availablity + "&foodtype=" + output);
+            const task = ref.child(datetime).put(file, metadata);
+            task
+                .then(snapshot => snapshot.ref.getDownloadURL())
+                .then(url => {
+                    console.log(url);
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'https://apifoodapp.herokuapp.com/addFood', false); // API POST request
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            res = xhr.responseText;
+                            console.log(res);
+                            if (res == 'true') {
+                                //Routing to foodlist.html
+                                window.location.replace("foodlist.html");
+                            }
+                        }
+                    }
+
+                    // Sending the value to DB
+                    xhr.send("foodname=" + name + "&foodpic=" + url + "&foodprice=" + price + "&foodpreptime=" + time + "&foodavailability=" + availablity + "&foodtype=" + output);
+
+                })
+                .catch(console.error);
+
 
 
         }
