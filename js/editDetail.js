@@ -33,12 +33,20 @@ function editDetail() {
                 // document.getElementById('name').innerHTML = myObj[i]._id;
                 // document.getElementById('details').innerHTML = '<tbody><tr><td><b>Price</b></td><td><b>₹'+ myObj[i].foodprice+'/-</b></td></tr><tr><td>Preparation Time</td><td>'+ myObj[i].foodpreptime +' Minutes</td></tr><tr><td>Time</td><td>10:00 AM - 10:00 PM</td></tr></tbody>'
 
-                document.getElementById("foodName").value = myObj[val]._id;
+                document.getElementById("foodName").innerHTML = myObj[val]._id;
                 document.getElementById("foodPrice").value = myObj[val].foodprice;
                 document.getElementById("foodTime").value = myObj[val].foodpreptime;
                 var fImg = document.getElementById('foodImage');
                 fImg.src = myObj[val].foodpic;
                 document.getElementById('foodPic').innerHTML = myObj[val].foodpic;
+
+                document.getElementById(myObj[val].foodtype).setAttribute('selected',true);
+
+                if(myObj[val].foodavailability == 1){
+                    document.getElementById("available-yes").setAttribute('checked',true);
+                }else{
+                    document.getElementById("available-no").setAttribute('checked',true);
+                }
                 // console.log(document.getElementById('foodPic'));
                 // if(localStorage.getItem("oneorzero") == '1'){
                 //     // document.getElementById('foodPic').setAttribute('required','true');
@@ -46,42 +54,69 @@ function editDetail() {
                 //     localStorage.setItem("oneorzero", '0');
                 //     console.log('2 '+localStorage.getItem("oneorzero"));
                 // }
-                
+
             }
         }
     }
     xhr.send();
 }
 
-function editComplete(){
-    const ref = firebase.storage().ref();
-            const file = document.querySelector("#foodPic").files[0];
-            var currentdate = new Date();
-            var datetime = "foodpic" + currentdate.getDate()
-                + (currentdate.getMonth() + 1)
-                + currentdate.getFullYear() + " @ "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
+function textChange() {
+    console.log(document.getElementById("foodPrice").value);
+    console.log(document.getElementById("foodTime").value);
+}
 
-            const metadata = {
-                contentType: file.type
-            };
+function catChange() {
+    selectElement = document.querySelector('#category');
+    output = selectElement.value;
+    console.log(output);
+}
 
-            const task = ref.child(datetime).put(file, metadata);
-            task
-                .then(snapshot => snapshot.ref.getDownloadURL())
-                .then(url => {
-                    console.log(url);
-                    if(localStorage.getItem("oneorzero") == '1'){
-                        // document.getElementById('foodPic').setAttribute('required','true');
-                        console.log(localStorage.getItem("oneorzero"));
-                        localStorage.setItem("oneorzero", '0');
-                        console.log('2 '+localStorage.getItem("oneorzero"));
-                        localStorage.setItem("url", url);
-                    }
-                })
-                .catch(console.error);
+function availChange() {
+    console.log('change');
+    var test = document.getElementsByName("available");
+    var availablity = checkedRadio(test);
+
+    function checkedRadio(ans) {
+        for (i = 0; i < ans.length; i++) {
+            if (ans[i].checked) {
+                return ans[i].value;
+            }
+        }
+    }
+
+    console.log(availablity);
+}
+
+function editComplete() {
+    // const ref = firebase.storage().ref();
+    // const file = document.querySelector("#foodPic").files[0];
+    // var currentdate = new Date();
+    // var datetime = "foodpic" + currentdate.getDate()
+    //     + (currentdate.getMonth() + 1)
+    //     + currentdate.getFullYear() + " @ "
+    //     + currentdate.getHours() + ":"
+    //     + currentdate.getMinutes() + ":"
+    //     + currentdate.getSeconds();
+
+    // const metadata = {
+    //     contentType: file.type
+    // };
+
+    // const task = ref.child(datetime).put(file, metadata);
+    // task
+    //     .then(snapshot => snapshot.ref.getDownloadURL())
+    //     .then(url => {
+    //         console.log(url);
+    //         if (localStorage.getItem("oneorzero") == '1') {
+    //             // document.getElementById('foodPic').setAttribute('required','true');
+    //             console.log(localStorage.getItem("oneorzero"));
+    //             localStorage.setItem("oneorzero", '0');
+    //             console.log('2 ' + localStorage.getItem("oneorzero"));
+    //             localStorage.setItem("url", url);
+    //         }
+    //     })
+    //     .catch(console.error);
 
 }
 
@@ -96,5 +131,32 @@ function picChange(event) {
     };
     reader.readAsDataURL(input.files[0]);
 
-    localStorage.setItem("oneorzero", '1'); 
+    localStorage.setItem("oneorzero", '1');
+
+    const ref = firebase.storage().ref();
+    const file = document.querySelector("#foodPic").files[0];
+    var currentdate = new Date();
+    var datetime = "foodpic" + currentdate.getDate()
+        + (currentdate.getMonth() + 1)
+        + currentdate.getFullYear() + " @ "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+
+    const metadata = {
+        contentType: file.type
+    };
+
+    const task = ref.child(datetime).put(file, metadata);
+    task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            console.log(url);
+            if (localStorage.getItem("oneorzero") == '1') {
+                // document.getElementById('foodPic').setAttribute('required','true');
+                localStorage.setItem("oneorzero", '0');
+                localStorage.setItem("url", url);
+            }
+        })
+        .catch(console.error);
 }
